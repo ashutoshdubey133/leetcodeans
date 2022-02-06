@@ -3,22 +3,17 @@ class Solution {
         if(a.length == 0 || a.length == 1){
             return a.length;
         }
-        int i = 0;
+        int i = 1;
         int j = 1;
-        int temp = Integer.MIN_VALUE;
         
-        for(;a[i]>temp;i++){
-            while(j<a.length && a[i] == a[j])
-                j++;
-            if(j<a.length) {
-            a[i+1] = a[j];
-            temp = a[i];
-            }else {
-            	break;
+        for(;j<a.length;j++){
+            if(a[j] != a[j-1]){
+                a[i] = a[j];
+                i++;
             }
         }
         
-        return i+1;
-        
+        return i;
     }
+        
 }

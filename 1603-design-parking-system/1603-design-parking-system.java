@@ -1,37 +1,18 @@
 class ParkingSystem {
-    private int big;
-    private int medium;
-    private int small;
+    int [] spaces = new int[3];
 
     public ParkingSystem(int big, int medium, int small) {
-        this.big = big;
-        this.medium = medium;
-        this.small = small;
+        spaces[0] = big;
+        spaces[1] = medium;
+        spaces[2] = small;
     }
     
     public boolean addCar(int carType) {
+        if(spaces[carType-1] == 0)
+            return false;
         
-        
-        switch(carType){
-            case 1:
-                if(big == 0)
-                    return false;
-                big--;
-                return true;
-            case 2:
-                if(medium == 0)
-                    return false;
-                medium--;
-                return true;
-            case 3:
-                if(small == 0)
-                    return false;
-                small--;
-                return true;
-        }
-        
-        return false;
-        
+        spaces[carType-1]--;
+        return true;
     }
 }
 
